@@ -1,0 +1,16 @@
+@Metadata.layer: #CORE
+annotate entity Z_B_FDAC_det_customer with
+{
+  @UI.lineItem: [{ position: 10, importance: #HIGH }]
+  Nombre;
+
+  @UI.lineItem: [{ position: 20, importance: #HIGH }]
+  Apellidos;
+
+  @UI.lineItem: [{ position: 30, importance: #HIGH, label: 'Correo Electrónico' }]
+  Correo;
+
+  @UI.lineItem: [{ position: 40, importance: #HIGH, label: 'Tipo de Contrato' }]
+  TipoContrato;
+
+}

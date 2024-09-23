@@ -1,0 +1,5 @@
+@EndUserText.label: 'Renting - Service Definition'
+define service ZSD_FDAC_RENTING {
+  expose Z_I_FDAC_RENTING01    as Cars;
+  expose Z_B_FDAC_det_customer as Customers;
+}

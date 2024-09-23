@@ -1,0 +1,56 @@
+managed implementation in class ZBP_R_FDAC_GROCERY unique;
+strict ( 2 );
+with draft;
+define behavior for ZR_FDAC_GROCERY alias Grocery
+persistent table ZFDAC_GROCERY
+draft table ZFDAC_GROCERY_D
+etag master Locallastchanged
+lock master total etag Lastchangedat
+authorization master( global )
+
+{
+  field ( readonly )
+   Id,
+   Createdby,
+   Createdat,
+   Lastchangedby,
+   Lastchangedat,
+   Locallastchanged;
+
+  field ( numbering : managed )
+   Id;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  action CheckExpirationDate result[1] $self;
+
+  mapping for ZFDAC_GROCERY
+  {
+    Id = id;
+    Product = product;
+    Category = category;
+    Brand = brand;
+    Price = price;
+    Currency = currency;
+    Quantity = quantity;
+    Purchasedate = purchasedate;
+    Expirationdate = expirationdate;
+    Expired = expired;
+    Rating = rating;
+    Note = note;
+    Createdby = createdby;
+    Createdat = createdat;
+    Lastchangedby = lastchangedby;
+    Lastchangedat = lastchangedat;
+    Locallastchanged = locallastchanged;
+  }
+}
