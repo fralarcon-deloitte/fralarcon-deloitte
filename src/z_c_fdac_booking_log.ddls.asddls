@@ -1,5 +1,6 @@
 @EndUserText.label: 'Consumption - Booking'
 @AccessControl.authorizationCheck: #CHECK
+@Metadata.allowExtensions: true
 define view entity Z_C_FDAC_BOOKING_LOG
   as projection on Z_I_FDAC_BOOKING_LOG
 {
@@ -20,9 +21,9 @@ define view entity Z_C_FDAC_BOOKING_LOG
       BookingStatus,
       LastChangeAt,
       /* Associations */
-      _BookingSupplement,
+      _Travel : redirected to parent Z_C_FDAC_TRAVEL_LOG,
+      _BookingSupplement : redirected to composition child Z_C_FDAC_BOOKSUPP_LOG,
       _Carrier,
       _Connection,
-      _Customer,
-      _Travel
+      _Customer
 }

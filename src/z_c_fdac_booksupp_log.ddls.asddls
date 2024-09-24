@@ -1,5 +1,6 @@
 @AccessControl.authorizationCheck: #CHECK
 @EndUserText.label: 'Consumption - Booking Supplement'
+@Metadata.allowExtensions: true
 define view entity Z_C_FDAC_BOOKSUPP_LOG
   as projection on Z_I_FDAC_BOOKSUPP_LOG
 {
@@ -16,7 +17,7 @@ define view entity Z_C_FDAC_BOOKSUPP_LOG
       Currency      as CurrencyCode,
       /* Associations */
       _Travel : redirected to Z_C_FDAC_TRAVEL_LOG,
-      _Booking : redirected to Z_C_FDAC_BOOKING_LOG,
+      _Booking : redirected to parent Z_C_FDAC_BOOKING_LOG,
       _Product,
       _SupplementText
 

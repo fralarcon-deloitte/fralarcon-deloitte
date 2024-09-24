@@ -1,5 +1,6 @@
 @EndUserText.label: 'Consumption - Travel Approval'
 @AccessControl.authorizationCheck: #NOT_REQUIRED
+@Metadata.allowExtensions: true
 define root view entity Z_C_FDAC_ATRAVEL_LOG
   as projection on Z_I_FDAC_TRAVEL_LOG
 {
