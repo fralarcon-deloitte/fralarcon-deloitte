@@ -1,0 +1,34 @@
+@Metadata.layer: #CORE
+@Search.searchable: true
+@UI: { 
+headerInfo: {
+    typeName: 'Booking',
+    typeNamePlural: 'Bookings',
+    typeImageUrl: '',
+    imageUrl: '',
+    title: {
+        type: #STANDARD,
+        value: 'BookingId'
+           }
+       }
+ }
+annotate view Z_C_FDAC_BOOKING_LOG
+    with 
+{
+    @UI.facet: [{ id:      'Booking' , 
+                  purpose: #STANDARD, 
+                  type:    #IDENTIFICATION_REFERENCE , 
+                  label:   'Travel',
+                  position: 10 },
+                { id: 'BookingSupplement',
+                  purpose: #STANDARD,
+                  type: #LINEITEM_REFERENCE,
+                  label: 'BookingSupplement',
+                  position: 20,
+                  targetElement: '_BookingSupplement'}
+                   ]
+
+    @Search.defaultSearchElement: true
+    TravelId;
+    
+}
