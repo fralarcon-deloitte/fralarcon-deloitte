@@ -5,8 +5,12 @@ define root view entity Z_C_FDAC_ATRAVEL_LOG
   as projection on Z_I_FDAC_TRAVEL_LOG
 {
   key TravelId,
+      @ObjectModel.text.element: [ 'AgencyName' ]
       AgencyId,
+      _Agency.name as AgencyName,
+      @ObjectModel.text.element: [ 'CustomerName' ]
       CustomerId,
+      _Customer.last_name as CustomerName,
       BeginDate,
       EndDate,
       @Semantics.amount: {

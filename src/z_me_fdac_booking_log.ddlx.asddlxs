@@ -1,6 +1,6 @@
 @Metadata.layer: #CORE
 @Search.searchable: true
-@UI: { 
+@UI: {
 headerInfo: {
     typeName: 'Booking',
     typeNamePlural: 'Bookings',
@@ -12,23 +12,26 @@ headerInfo: {
            }
        }
  }
-annotate view Z_C_FDAC_BOOKING_LOG
-    with 
+annotate view Z_C_FDAC_BOOKING_LOG with
 {
-    @UI.facet: [{ id:      'Booking' , 
-                  purpose: #STANDARD, 
-                  type:    #IDENTIFICATION_REFERENCE , 
-                  label:   'Travel',
-                  position: 10 },
-                { id: 'BookingSupplement',
-                  purpose: #STANDARD,
-                  type: #LINEITEM_REFERENCE,
-                  label: 'BookingSupplement',
-                  position: 20,
-                  targetElement: '_BookingSupplement'}
-                   ]
+  @UI.facet: [{ id:      'Booking' ,
+                purpose: #STANDARD,
+                type:    #IDENTIFICATION_REFERENCE ,
+                label:   'Travel',
+                position: 10 },
+              { id: 'BookingSupplement',
+                purpose: #STANDARD,
+                type: #LINEITEM_REFERENCE,
+                label: 'BookingSupplement',
+                position: 20,
+                targetElement: '_BookingSupplement'}
+                 ]
 
-    @Search.defaultSearchElement: true
-    TravelId;
-    
+  @Search.defaultSearchElement: true
+  TravelId;
+  @UI: { lineItem:       [{ position: 20, importance: #HIGH }],
+         identification: [{ position: 20, label: 'Travel ID [1,...,99999999]' }]}
+  @Search.defaultSearchElement: true
+  BookingId;
+
 }
